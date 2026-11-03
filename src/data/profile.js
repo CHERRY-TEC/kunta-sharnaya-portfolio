@@ -47,7 +47,7 @@ export const REPO_TAGS = {
 export const FEATURED = ["khet", "PG-HOSTAL-INFO", "ai-agent-rag", "cherry"];
 
 // Repos that should never appear on the portfolio (filtered from the live API too)
-export const EXCLUDED_REPOS = ["for-her-apology", "apology-website"];
+export const EXCLUDED_REPOS = ["for-her-apology", "apology-website", "hanmanth-portfolio"];
 
 // Live GitHub Pages demos (used as fallback; the API's has_pages wins when reachable)
 export const DEMO_URLS = {
