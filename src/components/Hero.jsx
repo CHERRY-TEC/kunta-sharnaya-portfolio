@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PROFILE, ROLES, STATS } from "../data/profile.js";
 import { GitHubIcon } from "./Navbar.jsx";
-import profilePhoto from "../assets/profile.jpg";
 
 /** Typewriter cycle through the role list. */
 function useTypedRole() {
@@ -101,6 +100,20 @@ export default function Hero() {
             <span className="caret" aria-hidden="true" />
           </h2>
 
+          <div className="mt-5 flex flex-wrap items-center gap-2.5">
+            <span className="inline-flex items-center gap-2 rounded-full border border-violet-400/25 bg-violet-500/10 px-3.5 py-1.5 text-xs font-semibold text-violet-200">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m12 4 9 5-9 5-9-5 9-5Z" />
+                <path d="M7 11.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4.5" />
+              </svg>
+              {PROFILE.education} · {PROFILE.college}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-semibold text-cyan-200">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              {PROFILE.role}
+            </span>
+          </div>
+
           <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-muted">
             I build <span className="text-white">full-stack web products end-to-end</span> — UI, APIs,
             database and AI features — using an AI-native workflow that turns an idea into a deployed
@@ -133,51 +146,48 @@ export default function Hero() {
         {/* Avatar / identity card with 3D tilt */}
         <div ref={cardRef} className="relative mx-auto w-full max-w-sm">
           <div className="glass relative rounded-[28px] p-6 shadow-[0_40px_100px_-40px_rgba(124,58,237,0.85)]">
-            {/* Profile photo with animated gradient frame */}
-            <div className="relative mx-auto w-full">
-              <div className="frame-shift rounded-[26px] p-[3px] shadow-[0_28px_70px_-32px_rgba(139,92,246,0.95)]">
-                <div className="rounded-[23px] bg-[#07080f] p-[3px]">
+            {/* Avatar with animated gradient ring */}
+            <div className="relative mx-auto h-44 w-44">
+              <div className="frame-shift h-full w-full rounded-full p-[3px] shadow-[0_28px_70px_-32px_rgba(139,92,246,0.95)]">
+                <div className="h-full w-full rounded-full bg-[#07080f] ring-1 ring-white/10">
                   <img
-                    src={profilePhoto}
+                    src={PROFILE.avatar}
                     alt={`${PROFILE.fullName} — profile photo`}
                     loading="eager"
-                    className="aspect-video w-full rounded-[20px] object-cover"
+                    className="h-full w-full rounded-full object-cover"
                     onError={(e) => {
-                      // fall back to the GitHub avatar if the local file ever goes missing
-                      const el = e.currentTarget;
-                      if (el.dataset.fallback) {
-                        el.style.display = "none";
-                      } else {
-                        el.dataset.fallback = "1";
-                        el.src = PROFILE.avatar;
-                      }
+                      e.currentTarget.style.display = "none";
                     }}
                   />
                 </div>
               </div>
-              <span className="absolute -bottom-3 left-1/2 inline-block max-w-[95%] -translate-x-1/2 truncate rounded-full border border-white/15 bg-[#0a0c16]/90 px-3 py-1 text-[10px] font-semibold tracking-tight text-slate-200 shadow-lg backdrop-blur">
+              <span className="absolute -bottom-2 left-1/2 inline-block max-w-[95%] -translate-x-1/2 truncate rounded-full border border-white/15 bg-[#0a0c16]/90 px-3 py-1 text-[10px] font-semibold tracking-tight text-slate-200 shadow-lg backdrop-blur">
                 {PROFILE.github}
               </span>
             </div>
 
             <div className="mt-9 space-y-3 text-sm">
-              <div className="flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
-                <span className="text-muted">Focus</span>
-                <span className="font-medium text-slate-100">Full-stack + AI</span>
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
+                <span className="shrink-0 text-muted">Focus</span>
+                <span className="text-right font-medium text-slate-100">AI + full-stack</span>
               </div>
-              <div className="flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
-                <span className="text-muted">Based in</span>
-                <span className="font-medium text-slate-100">{PROFILE.location}</span>
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
+                <span className="shrink-0 text-muted">Education</span>
+                <span className="text-right font-medium text-slate-100">{PROFILE.education}</span>
               </div>
-              <div className="flex items-center justify-between rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
-                <span className="text-muted">Style</span>
-                <span className="font-medium text-slate-100">AI-native shipping</span>
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
+                <span className="shrink-0 text-muted">College</span>
+                <span className="text-right font-medium leading-snug text-slate-100">{PROFILE.college}</span>
+              </div>
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-2.5">
+                <span className="shrink-0 text-muted">Based in</span>
+                <span className="text-right font-medium text-slate-100">{PROFILE.location}</span>
               </div>
             </div>
 
             <div className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500/15 to-cyan-500/15 px-3 py-2.5 text-xs font-medium text-violet-200">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
-              13 repos · shipping weekly
+              {STATS[0].value} repos · AI-first builds
             </div>
           </div>
         </div>

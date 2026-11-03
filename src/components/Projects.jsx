@@ -47,7 +47,9 @@ function useGithubRepos() {
               name: r.name,
               // prefer the curated (README-sourced) description when GitHub has none
               description:
-                snap?.description || r.description || "Personal project built and maintained by Hanmanth.",
+                snap?.description ||
+                r.description ||
+                `Personal project built and maintained by ${PROFILE.fullName}.`,
               language: r.language || snap?.language || "Code",
               stars: r.stargazers_count ?? 0,
               updated: (r.pushed_at || "").slice(0, 10),

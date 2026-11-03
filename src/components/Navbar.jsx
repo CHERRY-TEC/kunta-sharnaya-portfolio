@@ -29,10 +29,10 @@ export default function Navbar() {
       >
         <a href="#top" className="group flex items-center gap-3">
           <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-500 font-display text-sm font-bold text-white shadow-lg shadow-violet-500/30 transition-transform duration-300 group-hover:rotate-12">
-            H
+            {PROFILE.firstName.charAt(0)}
           </span>
           <span className="font-display text-[15px] font-semibold tracking-tight">
-            Hanmanth<span className="text-violet-400">.</span>
+            {PROFILE.firstName}<span className="text-violet-400">.</span>
           </span>
         </a>
 

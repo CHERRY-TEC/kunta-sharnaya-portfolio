@@ -20,9 +20,10 @@ export default function About() {
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal delay={80} className="glass glass-hover rounded-3xl p-7 sm:p-9">
             <p className="text-[1.05rem] leading-relaxed text-slate-300">
-              I&apos;m <span className="font-semibold text-white">Hanmanth</span> — a full-stack developer who
-              builds complete websites and web apps with AI at the core of the workflow. From the first
-              wireframe to the production database, I own every layer of the stack.
+              I&apos;m <span className="font-semibold text-white">Sharnaya</span> — a CSE undergraduate at
+              <span className="font-semibold text-white"> Malla Reddy Vishwavidyapeeth</span> and an AI developer who
+              builds complete websites and web apps with AI at the core of the workflow. From the first wireframe to
+              the production database, I own every layer of the stack.
             </p>
             <p className="mt-5 leading-relaxed text-muted">
               AI is my leverage: I use it to prototype faster, write cleaner code, and fold real
@@ -31,7 +32,7 @@ export default function About() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2.5">
-              {["End-to-end ownership", "AI-first development", "Clean, maintainable code", "Fast iteration"].map(
+              {["End-to-end ownership", "AI-first development", "Clean, maintainable code", "B.Tech CSE @ MRU"].map(
                 (t) => (
                   <span
                     key={t}
